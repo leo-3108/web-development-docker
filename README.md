@@ -16,3 +16,14 @@ Im Anschluss lässt sich das Tutorial im Browser unter http://localhost aufrufen
 
 Im folgenden wollen wir die wesentlichen Befehle zum Arbeiten mit Docker als Entwicklungsumgebung festhalten:
 
+## Add MySQL container
+
+
+```
+docker run -d \
+    --network todo-app --network-alias mysql \
+    -v todo-mysql-data:/var/lib/mysql \
+    -e MYSQL_ROOT_PASSWORD=secret \
+    -e MYSQL_DATABASE=todos \
+    mysql:5.7
+```
